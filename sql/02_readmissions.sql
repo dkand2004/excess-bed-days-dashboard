@@ -35,6 +35,9 @@ select
        and f.separation_ts::date <= d.last_day - 30)                   as eligible_for_readmission,
     (o.next_admission_ts is not null
        and date_diff('day', f.separation_ts::date, o.next_admission_ts::date) between 1 and 30) as readmitted_30d,
+    -- Cancer care involves scheduled treatment cycles, so many repeat admissions are planned.
+    -- We KEEP cancer (it reflects real-world complexity) but flag it so charts can show it separately.
+    (o.diagnosis_category = 'Cancer')                                   as likely_planned_pathway,
     -- Bands for the comparison. Cut-offs (20% shorter / longer than expected) are a
     -- judgement call; documented in docs/metric_definitions.md.
     case when o.oe_ratio is null then null

@@ -34,3 +34,8 @@
   near 0%. Always compare **within** a category, never across the whole pooled dataset.
 - In this synthetic data, longer-than-expected stays are **not** associated with higher
   readmission. This is a demonstration of the method, not a clinical finding.
+
+### Decision: cancer is kept in the readmission view
+Cancer admissions are retained because repeat admissions are a genuine feature of cancer care.
+They are flagged `likely_planned_pathway = true` so the dashboard can show them separately and
+the README states that planned and unplanned readmissions cannot be distinguished in synthetic data.
