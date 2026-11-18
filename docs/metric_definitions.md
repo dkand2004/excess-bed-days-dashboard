@@ -18,3 +18,19 @@
 - Peer groups use diagnosis category and age band only (not severity, comorbidity or sex).
 - Hospital assignment in this synthetic data is random, so hospital differences are noise by design.
 - Outlier-heavy groups inflate the mean; the median is kept for reference.
+
+## Readmission (sql/02_readmissions.sql)
+| Term | Definition |
+|---|---|
+| **30-day readmission** | Same patient admitted again to any hospital **1-30 days** after separation. All-cause. |
+| **Excluded** | Same-day (0 day) next admissions (continuation of care / transfer); stays ending in death; stays within 30 days of the end of the data (follow-up incomplete, called *censoring*). |
+| **Stay bands** | O/E < 0.8 shorter than expected; 0.8-1.2 as expected; > 1.2 longer than expected. Cut-offs are a judgement call. |
+
+### Known limits of the readmission view
+- Planned and unplanned readmissions cannot be separated in synthetic data. Synthea's cancer
+  pathways generate repeat admissions that look like scheduled treatment cycles (~30% in every
+  stay band), so they dominate the overall rate.
+- Readmissions are concentrated in two categories (Cancer, Cardiovascular); other categories are
+  near 0%. Always compare **within** a category, never across the whole pooled dataset.
+- In this synthetic data, longer-than-expected stays are **not** associated with higher
+  readmission. This is a demonstration of the method, not a clinical finding.
