@@ -1,0 +1,22 @@
+# --- Secrets: NEVER commit these ---
+.env
+*.key
+
+# --- Raw data: large, and regenerable from the README instructions ---
+data/raw/*
+!data/raw/.gitkeep
+
+# --- Local database file (rebuilt from raw data by src/load_data.py) ---
+*.duckdb
+*.duckdb.wal
+
+# --- Python clutter ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# --- OS / editor clutter ---
+.DS_Store
+.vscode/

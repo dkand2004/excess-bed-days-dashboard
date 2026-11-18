@@ -1,0 +1,6 @@
+# Python libraries for this project (versions are minimums; pin later once it works)
+duckdb>=1.0        # embedded analytical SQL database, no server needed
+pandas>=2.0        # tabular data handling for checks and exports
+python-dotenv>=1.0 # reads settings from the .env file
+jupyter>=1.0       # notebooks for exploration
+matplotlib>=3.8    # quick sanity-check charts (final charts are in Tableau)
