@@ -1,0 +1,11 @@
+hospital_id,hospital_name,state,remoteness
+1,Banksia Metro Hospital,QLD,Major city
+2,Jacaranda Coast Hospital,QLD,Regional
+3,Wattle Gully Regional Hospital,QLD,Regional
+4,Bunya Ranges Hospital,QLD,Major city
+5,Coolibah Plains Hospital,QLD,Remote
+6,Waratah Metro Hospital,NSW,Major city
+7,Kookaburra Valley Hospital,VIC,Regional
+8,Boab Coast Hospital,WA,Regional
+9,Mallee Plains Hospital,SA,Remote
+10,Lyrebird Gardens Hospital,VIC,Major city
