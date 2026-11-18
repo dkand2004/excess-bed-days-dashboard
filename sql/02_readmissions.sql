@@ -27,7 +27,7 @@ data_end as (
 )
 select
     o.episode_id, o.patient_id, o.hospital_id, o.hospital_name, o.state, o.remoteness,
-    o.admission_ts, o.diagnosis_category, o.age_band, o.mode_of_separation,
+    o.admission_ts, o.diagnosis_category, o.diagnosis_name, o.age_band, o.sex, o.mode_of_separation,
     o.los_days, o.expected_los, o.excess_days, o.oe_ratio,
     date_diff('day', f.separation_ts::date, o.next_admission_ts::date) as days_to_next_admission,
     -- Eligible = survived the stay AND a full 30-day follow-up exists in the data.

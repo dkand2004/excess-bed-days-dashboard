@@ -1,0 +1,11 @@
+hospital_id,hospital_name,state,remoteness,stays,scored_stays,observed_days,expected_days,excess_bed_days,oe_ratio
+1,Banksia Metro Hospital,QLD,Major city,172,172,716,771.1,-55.1,0.929
+2,Jacaranda Coast Hospital,QLD,Regional,224,224,1081,1120.9,-39.9,0.964
+3,Wattle Gully Regional Hospital,QLD,Regional,204,203,1277,1107.3,169.7,1.153
+4,Bunya Ranges Hospital,QLD,Major city,192,191,901,965.4,-64.4,0.933
+5,Coolibah Plains Hospital,QLD,Remote,211,210,1208,1096.7,111.3,1.102
+6,Waratah Metro Hospital,NSW,Major city,196,195,925,966.3,-41.3,0.957
+7,Kookaburra Valley Hospital,VIC,Regional,306,305,1523,1572.1,-49.1,0.969
+8,Boab Coast Hospital,WA,Regional,253,250,1207,1270.3,-63.3,0.95
+9,Mallee Plains Hospital,SA,Remote,243,242,1214,1214.5,-0.5,1.0
+10,Lyrebird Gardens Hospital,VIC,Major city,181,179,787,754.3,32.7,1.043

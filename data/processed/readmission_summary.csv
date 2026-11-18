@@ -1,0 +1,28 @@
+diagnosis_category,likely_planned_pathway,stay_band,stays,readmissions,readmit_rate_pct
+Cancer,true,1. Shorter than expected (O/E < 0.8),260,75,28.8
+Cancer,true,2. As expected (0.8-1.2),179,61,34.1
+Cancer,true,3. Longer than expected (O/E > 1.2),147,40,27.2
+Cardiovascular,false,1. Shorter than expected (O/E < 0.8),372,25,6.7
+Cardiovascular,false,2. As expected (0.8-1.2),60,0,0.0
+Cardiovascular,false,3. Longer than expected (O/E > 1.2),118,1,0.8
+"Congenital, metabolic and other",false,1. Shorter than expected (O/E < 0.8),40,0,0.0
+"Congenital, metabolic and other",false,2. As expected (0.8-1.2),18,0,0.0
+"Congenital, metabolic and other",false,3. Longer than expected (O/E > 1.2),1,0,0.0
+Digestive and abdominal,false,1. Shorter than expected (O/E < 0.8),25,0,0.0
+Digestive and abdominal,false,2. As expected (0.8-1.2),18,0,0.0
+Digestive and abdominal,false,3. Longer than expected (O/E > 1.2),20,0,0.0
+Mental health and substance use,false,1. Shorter than expected (O/E < 0.8),274,0,0.0
+Mental health and substance use,false,2. As expected (0.8-1.2),81,1,1.2
+Mental health and substance use,false,3. Longer than expected (O/E > 1.2),144,0,0.0
+Musculoskeletal and injury,false,1. Shorter than expected (O/E < 0.8),37,0,0.0
+Musculoskeletal and injury,false,2. As expected (0.8-1.2),24,0,0.0
+Musculoskeletal and injury,false,3. Longer than expected (O/E > 1.2),29,0,0.0
+Pregnancy and reproductive,false,1. Shorter than expected (O/E < 0.8),104,0,0.0
+Pregnancy and reproductive,false,2. As expected (0.8-1.2),2,0,0.0
+Pregnancy and reproductive,false,3. Longer than expected (O/E > 1.2),22,0,0.0
+Respiratory and infection,false,1. Shorter than expected (O/E < 0.8),15,0,0.0
+Respiratory and infection,false,2. As expected (0.8-1.2),20,0,0.0
+Respiratory and infection,false,3. Longer than expected (O/E > 1.2),24,1,4.2
+Transplant care,false,1. Shorter than expected (O/E < 0.8),50,0,0.0
+Transplant care,false,2. As expected (0.8-1.2),10,0,0.0
+Transplant care,false,3. Longer than expected (O/E > 1.2),25,0,0.0
