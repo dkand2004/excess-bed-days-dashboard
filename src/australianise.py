@@ -35,7 +35,9 @@ con.execute(f"""
 create or replace table stg_stay as
 select e.Id as episode_id, e.PATIENT as patient_id, e.ORGANIZATION as org_id,
        e.START::timestamp as admission_ts, e.STOP::timestamp as separation_ts,
-       e.REASONDESCRIPTION as diagnosis_text
+       -- Clean the label: collapse double spaces, split off the '(disorder)/(situation)/(finding)' tag.
+       trim(regexp_replace(regexp_replace(e.REASONDESCRIPTION, '\\s*\\((disorder|situation|finding)\\)\\s*$', ''), '\\s+', ' ', 'g')) as diagnosis_name,
+       regexp_extract(e.REASONDESCRIPTION, '\\((disorder|situation|finding)\\)\\s*$', 1) as reason_type
 from read_csv_auto('{RAW}/encounters.csv') e
 where e.ENCOUNTERCLASS = 'inpatient'
   and e.START::timestamp >= '{WINDOW_START}'
@@ -66,7 +68,7 @@ select s.episode_id, s.patient_id, h.hospital_id, h.hospital_name, h.state, h.re
        s.admission_ts, s.separation_ts,
        (s.admission_ts::date = s.separation_ts::date) as same_day,
        greatest(1, date_diff('day', s.admission_ts::date, s.separation_ts::date)) as los_days,
-       s.diagnosis_text as diagnosis_group,
+       s.diagnosis_name, coalesce(g.diagnosis_category, 'Other (unmapped)') as diagnosis_category, s.reason_type,
        case when p.DEATHDATE is not null
                  and abs(date_diff('day', p.DEATHDATE::date, s.separation_ts::date)) <= 1
             then 'Died' else 'Discharged' end as mode_of_separation,
@@ -78,9 +80,14 @@ select s.episode_id, s.patient_id, h.hospital_id, h.hospital_name, h.state, h.re
             else '65+' end as age_band
 from stg_stay s
 join org_map m using (patient_id)
+left join read_csv_auto('data/mappings/diagnosis_groups.csv') g on g.diagnosis_name = s.diagnosis_name
 join dim_hospital h using (hospital_id)
 join read_csv_auto('{RAW}/patients.csv') p on p.Id = s.patient_id
 """)
+# Safety net: list any diagnosis the mapping file does not know yet, so it is never silently lost.
+unmapped = con.execute("select diagnosis_name, count(*) from fact_separation where diagnosis_category = 'Other (unmapped)' group by 1").fetchall()
+if unmapped:
+    print("WARNING unmapped diagnoses (add to data/mappings/diagnosis_groups.csv):", unmapped)
 # NOTE: names, SSN, licence, passport, address, race/ethnicity are deliberately NOT carried over.
 
 con.execute(f"copy dim_hospital to '{OUT}/dim_hospital.csv' (header)")

@@ -1,0 +1,36 @@
+diagnosis_name,diagnosis_category
+Chronic congestive heart failure,Cardiovascular
+Acute non-ST segment elevation myocardial infarction,Cardiovascular
+Acute ST segment elevation myocardial infarction,Cardiovascular
+Aortic valve stenosis,Cardiovascular
+Aortic valve regurgitation,Cardiovascular
+Preinfarction syndrome,Cardiovascular
+History of coronary artery bypass grafting,Cardiovascular
+History of aortic valve replacement,Cardiovascular
+Abnormal findings diagnostic imaging heart+coronary circulat,Cardiovascular
+Non-small cell carcinoma of lung TNM stage 1,Cancer
+Primary small cell malignant neoplasm of lung TNM stage 1,Cancer
+Malignant neoplasm of breast,Cancer
+Overlapping malignant neoplasm of colon,Cancer
+Malignant neoplasm of colon,Cancer
+Primary malignant neoplasm of colon,Cancer
+Metastatic malignant neoplasm to colon,Cancer
+Leukemia disease,Cancer
+Multiple myeloma,Cancer
+Disease caused by severe acute respiratory syndrome coronavirus 2,Respiratory and infection
+Pulmonary emphysema,Respiratory and infection
+Chronic obstructive bronchitis,Respiratory and infection
+Dependent drug abuse,Mental health and substance use
+Rupture of patellar tendon,Musculoskeletal and injury
+Injury of medial collateral ligament of knee,Musculoskeletal and injury
+Injury of anterior cruciate ligament,Musculoskeletal and injury
+Injury of tendon of the rotator cuff of shoulder,Musculoskeletal and injury
+Sterilization requested,Pregnancy and reproductive
+Tubal pregnancy,Pregnancy and reproductive
+Appendicitis,Digestive and abdominal
+Awaiting transplantation of kidney,Transplant care
+Awaiting transplantation of bone marrow,Transplant care
+Sleep disorder,"Congenital, metabolic and other"
+Cystic fibrosis,"Congenital, metabolic and other"
+Meningomyelocele,"Congenital, metabolic and other"
+Neuropathy due to type 2 diabetes mellitus,"Congenital, metabolic and other"
