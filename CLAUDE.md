@@ -25,3 +25,4 @@
 - Pipeline: `src/australianise.py` then `sql/01_expected_los.sql`, `sql/02_readmissions.sql`, then `src/export_tables.py`.
 - Metric choices (leave-one-out mean, O/E ratio, minimum peer group 10) are documented in `docs/metric_definitions.md`. Do not change them without discussion.
 - Hospital differences are random by design; never describe hospitals as better or worse.
+- The owner wants to be able to explain this project: keep `docs/how_it_works.md` accurate and up to date as things change. A short demo video (one scenario) is a stretch goal; see `docs/TODO.md`.
