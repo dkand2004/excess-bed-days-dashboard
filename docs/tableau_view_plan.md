@@ -20,8 +20,8 @@ Suggested palette (colour-blind safe): text/neutral `#374151`, mid grey `#9CA3AF
 | Title + one-line caveat: SYNTHETIC DATA - method demo       |
 | [3 numbers: Stays 2,182 | Avg stay 5.0 d | 30-day readmit]  |
 +--------------------------------+----------------------------+
-| 1. Hospital O/E (click to      | 2. Category x age band     |
-|    filter the rest)            |    excess days per stay    |
+| 1. Hospital O/E (click to      | 2. Hospital x diagnosis    |
+|    filter the rest)            |    O/E heatmap             |
 +--------------------------------+----------------------------+
 | 3. Monthly admissions &        | 4. 30-day readmission by   |
 |    separations                 |    category and stay band  |
@@ -35,7 +35,7 @@ Suggested palette (colour-blind safe): text/neutral `#374151`, mid grey `#9CA3AF
 |---|---|---|---|
 | 0 | Header numbers | `stay_level.csv` | Stays = `COUNT([episode_id])`; avg stay = `AVG([los_days])`; readmission = share where `[eligible_for_readmission]` and `[readmitted_30d]` |
 | 1 | **Is any hospital's stay length well above what its case-mix predicts?** | `hospital_summary.csv` | Dot plot: `hospital_name` rows, `oe_ratio` columns, sorted. **Reference line at 1.00** ("as expected") and **at 1.18** ("flag threshold" from the planted-excess test). Dots grey; **accent only if `oe_ratio` > 1.18**. Label each with `scored_stays`. Today the highest is 1.15, so none is flagged, and that is the honest answer. |
-| 2 | **Which diagnosis groups and ages run longer than their peers?** | `stay_level.csv` | Heatmap: `diagnosis_category` rows, `age_band` columns; colour = average `excess_days` (diverging, grey to accent); text = number of stays. **Grey out cells with n < 10.** |
+| 2 | **Where within hospitals do stays run longer than expected?** | `stay_level.csv` | Heatmap: `Diagnosis Category` rows, `Hospital Name` columns; colour and label = `Cell O/E` (O/E only when a cell has 20 or more scored stays, otherwise blank). Orange sequential palette, start 1.00, end 1.47 (the cell-level flag threshold from the planted-excess test). 28 of 90 cells have enough data; none is flagged. Exploratory only: cell-level detection power is low. |
 | 3 | **How busy is each month?** | `monthly_trend.csv` | Two lines: `admissions`, `separations` (greys). **Show the last month dashed/greyed** (`is_partial_month`). Filter by `state` optional. |
 | 4 | **Do longer-than-expected stays come back more often?** | `readmission_summary.csv` | Bars: `readmit_rate_pct` by `stay_band`, one panel each for **Cardiovascular**, **Cancer** and "everything else". Label bars with `stays`. **Cancer panel carries a note: "likely planned treatment cycles"** (`likely_planned_pathway`). Honest answer: no consistent link in this data. |
 | 5 | **How much should you trust this dashboard?** | `planted_excess_power.csv` | Small table or line: detection rate vs planted excess. Message: a hospital-wide problem needs ~25-30% longer stays to be flagged reliably; a problem confined to one diagnosis group is almost invisible at hospital level. |
@@ -77,3 +77,8 @@ Enough data := COUNT(IF NOT ISNULL([expected_los]) THEN [episode_id] END) >= 10
 - Why leave-one-out O/E instead of average stay (bias).
 - Why the dashboard shows a flag threshold, and what the planted-excess test says it can and cannot detect.
 - Why one screen, one accent colour and no tabs (clinical usability).
+
+## Change log
+- **Chart 2 changed** after a sanity check: the original idea (average excess days by diagnosis x age band) would show only zeros,
+  because excess days sum to zero inside every peer group by construction (largest cell value 0.0003). Replaced by the hospital x diagnosis O/E heatmap.
+- **Calculated field for chart 2:** `IF COUNT([Expected Los]) >= 20 THEN SUM(IF NOT ISNULL([Expected Los]) THEN [Los Days] END) / SUM([Expected Los]) END`

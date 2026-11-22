@@ -18,6 +18,7 @@
 - Explain what you are about to do and why, and summarise afterwards. Define new terms in plain language.
 - Do not make design, tooling or naming decisions silently: present options, recommend one, and wait for the answer.
 - Go step by step; keep the project a small-scale prototype.
+- **Sanity-check before instructing:** before giving the owner steps for any chart, metric or analysis, test the idea against the actual data first (for example: would the chart show anything other than zeros or constants?) and report what the check found.
 - Comments in code should explain *why*, not only *what*.
 
 ## Project facts worth knowing
