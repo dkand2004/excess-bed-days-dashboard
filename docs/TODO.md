@@ -20,3 +20,10 @@ Goal: back the Project 1 definitions with real sources, and align where an offic
 - [ ] Chart 5: planted-excess "how much to trust this" table
 - [ ] Assemble the dashboard (note: five diagnosis groups have no hospital cell with 20+ stays)
 - [ ] Publish, screenshot, add the link to the README
+
+## Learning guide (requested by the owner)
+- [ ] Write `docs/how_it_works.md`: a plain-language teaching guide to Project 1 (pipeline, O/E ratio with a worked example, readmission logic, planted-excess test, calculated fields, limits, likely questions with answers, glossary), so the owner can answer questions about it. Keep it updated after each milestone.
+
+## Demo video (stretch, only if time allows)
+- [ ] One short video (about 3 minutes) for ONE scenario: a manager asks whether one hospital keeps patients too long. Show chart 1 (nothing flagged), explain the threshold, drill into chart 2, then show what the planted-excess test says a real problem would look like.
+- Synthetic data only; no real hospital names; do not show `.env` or any key.
