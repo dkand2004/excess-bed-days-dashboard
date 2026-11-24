@@ -22,6 +22,10 @@ An average length of stay hides a lot: a cardiac ward may stay longer simply bec
 - **Readmissions:** about 9.6% overall, 86% of them in cancer (likely planned treatment cycles). No consistent link between stay length and readmission.
 
 ## The dashboard
+[![Excess Bed-Days Dashboard (synthetic data)](tableau/dashboard.png)](https://public.tableau.com/app/profile/dreshti.kandpal/viz/ExcessBed-DaysDashboardsyntheticdata/Dashboard1)
+
+*Click the image to open the live dashboard on Tableau Public.*
+
 | Chart | Question |
 |---|---|
 | 1. Hospital O/E dot plot | Is any hospital well above what its case-mix predicts? |
