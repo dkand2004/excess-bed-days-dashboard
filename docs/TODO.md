@@ -15,11 +15,12 @@ Goal: back the Project 1 definitions with real sources, and align where an offic
 - Never claim the dashboard follows an official method unless a source says so.
 
 ## Tableau (planned)
-- [ ] Chart 3: monthly admissions and separations (mark the partial November 2026 month)
-- [ ] Chart 4: 30-day readmission by stay band (Cancer labelled "likely planned")
-- [ ] Chart 5: planted-excess "how much to trust this" table
-- [ ] Assemble the dashboard (note: five diagnosis groups have no hospital cell with 20+ stays)
-- [ ] Publish, screenshot, add the link to the README
+- [x] Chart 3: monthly admissions and separations (partial November 2026 month excluded)
+- [x] Chart 4: where readmissions come from (by diagnosis group; Cancer labelled "likely planned")
+- [x] Chart 5: planted-excess "how much to trust this" chart
+- [x] Assemble the dashboard (note: five diagnosis groups have no hospital cell with 20+ stays)
+- [x] Published to Tableau Public; link added to the README
+- [ ] Add `tableau/dashboard.png` (screenshot) and show it in the README
 
 ## Learning guide (requested by the owner)
 - [x] (First full version written) `docs/how_it_works.md`: a plain-language teaching guide to Project 1 (pipeline, O/E ratio with a worked example, readmission logic, planted-excess test, calculated fields, limits, likely questions with answers, glossary), so the owner can answer questions about it. **Keep it updated after each milestone** (add charts 3 to 5, any definition changes from the Wednesday references check).

@@ -117,7 +117,11 @@ of a false alarm anywhere.
 |---|---|---|
 | 1. Hospital O/E dot plot | Is any hospital well above what its case-mix predicts? | 10 dots, reference lines at 1.00 and 1.18. None crosses. |
 | 2. Hospital x diagnosis heatmap | Where within hospitals do stays run longer? | 28 cells with 20+ stays; the rest blank. The highest is about 1.20, well below 1.47. |
-| 3 to 5 (planned) | Monthly trend; readmission by stay band; "how much to trust this" | |
+| 3. Monthly lines | How many patients are admitted and separated each month? | 70 months, about 16 to 47 a month; November 2026 left out (incomplete). |
+| 4. Readmissions by diagnosis group | Where do 30-day readmissions come from? | Cancer about 30% (86% of all readmissions), cardiovascular about 4.7%, the rest near 0%. |
+| 5. Planted-excess detection | How big a problem can this dashboard catch? | Shows the table in section 6 as a chart, with an 80% line. |
+
+The finished dashboard is published on Tableau Public (link in the README).
 
 **Calculated fields (in Tableau)**
 | Field | Formula | Purpose |
