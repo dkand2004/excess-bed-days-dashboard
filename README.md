@@ -55,7 +55,7 @@ Details in [`docs/metric_definitions.md`](docs/metric_definitions.md) and [`docs
 - Hospital differences are random by design.
 - Planned and unplanned readmissions cannot be separated in synthetic data.
 - Only 2,182 stays, so cells are small.
-- The method is my own design based on common benchmarking ideas; official definitions have **not yet been checked** (see [`docs/TODO.md`](docs/TODO.md)).
+- The method is a **simplified version** of approaches used in practice (for example NSW Health's Relative Stay Index, which adjusts for many more variables). Some sources were read; the official AIHW/METEOR length-of-stay definition is still to be confirmed. See [`docs/references.md`](docs/references.md).
 
 ## Repo structure
 | Folder | Purpose |

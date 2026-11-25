@@ -1,7 +1,8 @@
-# References (abstract-level; full texts not read)
+# References
 
-These four papers were found on PubMed and **only their abstracts were read**. Claims below are limited to what the abstracts state.
-Official length-of-stay definitions (AIHW / METEOR, Queensland Health) are **still to be checked** (those sites could not be opened from the build environment).
+**Part A** lists four papers found on PubMed (**abstracts only**). **Part B** lists web pages whose text was **read directly**. **Part C** lists leads that could **not** be opened (AIHW, METEOR and Queensland Health block automated access from the build environment), so nothing from them is treated as verified.
+
+## Part A: peer-reviewed papers (abstracts read)
 
 | Source | What the abstract says | How it relates to this project |
 |---|---|---|
@@ -15,3 +16,24 @@ Official length-of-stay definitions (AIHW / METEOR, Queensland Health) are **sti
 - **Our method is a simplified version:** peer-group mean (diagnosis group x age band) instead of a model that adjusts for severity and comorbidity. This stays, and is documented as a simplification.
 - **Possible future refinements (not made):** model-based expected LOS; the **geometric mean** for skewed LOS (used by the CMS benchmark in the 2026 paper); funnel plots.
 - **Still open:** the official Australian definition of LOS and how same-day stays are counted. Until it is read, the "same-day counts as 1 day" convention stays marked "verify before quoting".
+
+## Part B: web pages read directly
+| Source | What the page says (as read) | How it relates |
+|---|---|---|
+| NSW Health, *Relative Stay Index App (RSI App)* (web page) | The tool lets users investigate "if length of stay in their hospital(s) is higher or lower than would be anticipated based on their patient's clinical conditions and personal characteristics. This is expressed as **excess or saved bed days**." RSI uses five years of data to determine an expected length of stay **for each individual record**, adjusting for hospital peer group, casemix (DRG), age and sex, season, day of week, mode of separation (including transfer), emergency vs planned admission, a history of COVID, living alone, assisted living and low socioeconomic status. | **The closest official analogue.** Same idea as our excess bed-days. **Differences:** NSW uses a model with many variables; ours uses diagnosis group x age band only (no sex, urgency, season or social factors). |
+| Victorian Auditor-General's Office, *Hospital Performance: Length of Stay* (web report; year not confirmed from the text read) | Uses a **relative stay index (RSI)** to compare hospitals' length of stay. Defines average length of stay as total days divided by number of stays, **excluding same-day stays**. Excluded same-day and non-acute stays and outlier episodes from the analysis. | Confirms "RSI" as the Australian term for this kind of comparison. Notes that ALOS conventions exclude same-day stays (our synthetic data has none). |
+| *Development and validation of a prediction model of length of ICU stay for benchmarking*, Scientific Reports (article s41598-026-56159-4; Japanese ICUs) | Derives **SLOSR** (standardised LOS ratio) and **OMELOS (observed minus expected LOS, "to quantify the difference in the day-scale for managerial relevance")**, summarised in funnel plots. Reports that **overdispersion correction reduced the proportion of ICUs outside the 95% control limits from 69% to 9.2%**. | OMELOS matches our `excess_days`; SLOSR matches our O/E. The 69% to 9.2% result shows that naive flag limits give many false alarms, which is why we calibrated our flag lines empirically (planted-excess test). Different setting (ICU, Japan). |
+| Island Health (Canada), *Length of Stay vs. Expected Length of Stay in Acute Care* (PDF) | Indicator = ratio of actual to expected length of stay (ALOS:ELOS), target 1.00; above 1.00 means longer than expected. **Excludes "atypical" cases** (patients at more than one hospital, died in hospital, discharged against medical advice, unusually long stays; about 20% of cases). | Same ratio and interpretation as ours. **Differs:** we do not exclude deaths or outliers (22 deaths in our data). |
+
+## Part C: leads NOT verified (could not be opened)
+These came from a web-search summary supplied by the project owner. They are **not** cited as evidence yet.
+- METEOR data elements 269422 and 329889 (length of stay with and without leave days) and the claim that **same-day stays count as 1 day**.
+- AIHW glossary and admitted patient care pages (average length of stay including or excluding same-day stays).
+- Queensland Health: QHAPDC manual counting rules (including leave rules) and the Performance and Accountability Framework.
+- The claim that AIHW and state departments use indirect standardisation by AR-DRG, and medRxiv preprint 10.1101/2025.06.26.25330250.
+To verify: save each page as a PDF from a browser (Print, then Save as PDF) and share it.
+
+## What this means for our method (decision rule: definition differs, change; method differs, keep and document)
+- **Concept confirmed by official sources:** comparing observed with expected length of stay for each record, summed to hospital level and expressed as excess bed days, is what NSW Health's RSI does.
+- **Our method is a simplified version** and is documented as such. Candidate refinements (none made): more adjustment variables where data allows; excluding deaths and outliers as a sensitivity check; the geometric mean for skewed stays.
+- **Same-day convention:** still marked "verify before quoting" until the METEOR page is read.

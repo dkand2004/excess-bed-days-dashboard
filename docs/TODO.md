@@ -3,9 +3,9 @@
 ## Wednesday: references check (planned)
 Goal: back the Project 1 definitions with real sources, and align where an official definition differs.
 
-- [ ] Find and read the official definition of **length of stay** (AIHW or similar), including how **same-day stays** are counted.
+- [ ] (Needs the owner to save the METEOR/AIHW pages as PDFs; blocked for the build environment.) Find and read the official definition of **length of stay** (AIHW or similar), including how **same-day stays** are counted.
       Currently we count a same-day stay as 1 day; this is marked "verify before quoting".
-- [ ] Find a source on how **Queensland Health / Hospital and Health Services** measure and compare stay length.
+- [~] Official analogues read: NSW Health RSI and Victorian Auditor-General (see `docs/references.md`). Queensland Health source still to be obtained.
 - [x] Found sources on **observed-to-expected (O/E) ratios** in hospital benchmarking (abstracts read; see `docs/references.md`).
 - [ ] Cite only what was actually read. Mark anything unread as unverified.
 
