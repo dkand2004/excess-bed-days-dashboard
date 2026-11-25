@@ -39,3 +39,14 @@
 Cancer admissions are retained because repeat admissions are a genuine feature of cancer care.
 They are flagged `likely_planned_pathway = true` so the dashboard can show them separately and
 the README states that planned and unplanned readmissions cannot be distinguished in synthetic data.
+
+## Sensitivity checks (`src/sensitivity_checks.py`)
+Benchmarking sources (for example Island Health) exclude deaths and unusually long stays; our main index does not. The same leave-one-out O/E was recomputed under two exclusion rules. The base column reproduces `hospital_summary.csv`.
+
+| Rule | Stays dropped | Largest change in a hospital's O/E | Rank correlation with base | Hospitals above the 1.18 flag line |
+|---|---|---|---|---|
+| Base (all stays) | 0 | n/a | n/a | 0 |
+| Exclude stays ending in death | 33 | 0.015 | 0.99 | 0 |
+| Exclude stays above the 99th percentile of LOS (26 days) | 17 | 0.067 | 0.82 | 0 |
+
+**Reading it:** excluding deaths barely changes anything. Excluding the longest 1% of stays moves Wattle Gully from 1.153 to 1.086, the largest change, and shuffles the middle of the ranking a little. No version flags any hospital. Because hospital assignment is random here, small reshuffles are expected. Full results: `data/processed/sensitivity_checks.csv`.

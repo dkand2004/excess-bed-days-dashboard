@@ -14,6 +14,8 @@ Goal: back the Project 1 definitions with real sources, and align where an offic
 - **Method differs** (O/E, peers, leave-one-out, minimum group sizes): keep it, and document it honestly as our own design.
 - Never claim the dashboard follows an official method unless a source says so.
 
+- [x] Sensitivity check excluding deaths and extreme stays (`src/sensitivity_checks.py`): conclusions unchanged.
+
 ## Tableau (planned)
 - [x] Chart 3: monthly admissions and separations (partial November 2026 month excluded)
 - [x] Chart 4: where readmissions come from (by diagnosis group; Cancer labelled "likely planned")

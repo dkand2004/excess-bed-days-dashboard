@@ -1,0 +1,11 @@
+hospital_name,base,no_deaths,no_long_outliers,diff_no_deaths,diff_no_outliers
+Banksia Metro Hospital,0.929,0.942,0.951,0.013,0.022
+Boab Coast Hospital,0.95,0.953,0.97,0.003,0.02
+Bunya Ranges Hospital,0.933,0.931,0.964,-0.002,0.031
+Coolibah Plains Hospital,1.102,1.109,1.089,0.007,-0.013
+Jacaranda Coast Hospital,0.964,0.962,0.991,-0.002,0.027
+Kookaburra Valley Hospital,0.969,0.97,0.96,0.001,-0.009
+Lyrebird Gardens Hospital,1.043,1.043,1.063,0.0,0.02
+Mallee Plains Hospital,1.0,0.996,0.995,-0.004,-0.005
+Waratah Metro Hospital,0.957,0.957,0.949,0.0,-0.008
+Wattle Gully Regional Hospital,1.153,1.138,1.086,-0.015,-0.067

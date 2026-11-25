@@ -142,6 +142,7 @@ reserved for what needs attention, every number shows how many stays it rests on
 - Hospital differences are random, so no hospital is "better" or "worse".
 - Planned and unplanned readmissions cannot be separated.
 - Only 2,182 stays, so cells are small.
+- **Sensitivity checks:** excluding deaths (33 stays) or the longest 1% of stays (17 stays) changes a hospital's O/E by at most 0.015 and 0.067, and still flags no hospital (see `docs/metric_definitions.md`).
 - The method is my own design based on common benchmarking ideas; **no official source has been checked yet**
   (a Wednesday task in `docs/TODO.md`).
 
