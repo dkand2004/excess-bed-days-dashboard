@@ -6,7 +6,7 @@ Goal: back the Project 1 definitions with real sources, and align where an offic
 - [ ] Find and read the official definition of **length of stay** (AIHW or similar), including how **same-day stays** are counted.
       Currently we count a same-day stay as 1 day; this is marked "verify before quoting".
 - [ ] Find a source on how **Queensland Health / Hospital and Health Services** measure and compare stay length.
-- [ ] Find a source on **observed-to-expected (O/E) ratios** in hospital benchmarking.
+- [x] Found sources on **observed-to-expected (O/E) ratios** in hospital benchmarking (abstracts read; see `docs/references.md`).
 - [ ] Cite only what was actually read. Mark anything unread as unverified.
 
 ### How to handle differences
