@@ -3,7 +3,7 @@
 | Term | Definition |
 |---|---|
 | **Separation** | End of an admitted episode of care (Australian term for discharge). |
-| **LOS (days)** | Separation date minus admission date; a same-day stay counts as 1 day. *(Common Australian convention; verify before quoting.)* |
+| **LOS (days)** | Separation date minus admission date; a same-day stay counts as 1 day. *(Verified against the Queensland QHAPDC Manual 2026-27, section 3.8.1: LOS = separation date minus admission date minus leave days; admitted and separated on the same date counts as one patient day; the separation day itself is not counted. Our synthetic data has no leave days.)* |
 | **Peer group** | Stays with the same diagnosis category and age band (0-17, 18-39, 40-64, 65+). |
 | **Expected LOS** | Mean LOS of the peer group **excluding the stay itself** (leave-one-out). Not computed if the group has fewer than 10 stays. |
 | **Excess days** | Observed LOS minus expected LOS. Within a peer group these sum to zero. |

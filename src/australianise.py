@@ -59,7 +59,7 @@ select distinct patient_id, 1 + (hash(patient_id) % {n_hosp})::int as hospital_i
 #  - separation = discharge / end of an admitted episode
 #  - same-day = admitted and separated on the same calendar day
 #  - LOS convention: overnight = separation date - admission date; same-day counts as 1
-#    (a commonly used convention in Australian hospital statistics; verify before quoting).
+#    (QHAPDC Manual 2026-27 section 3.8.1: same-day = one patient day; leave days: none in synthetic data).
 #  - mode of separation: Synthea has no transfers, so only 'Died' vs 'Discharged'.
 #    A death within 1 day of separation is treated as died in hospital.
 con.execute(f"""

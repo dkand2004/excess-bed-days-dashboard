@@ -25,9 +25,14 @@
 | *Development and validation of a prediction model of length of ICU stay for benchmarking*, Scientific Reports (article s41598-026-56159-4; Japanese ICUs) | Derives **SLOSR** (standardised LOS ratio) and **OMELOS (observed minus expected LOS, "to quantify the difference in the day-scale for managerial relevance")**, summarised in funnel plots. Reports that **overdispersion correction reduced the proportion of ICUs outside the 95% control limits from 69% to 9.2%**. | OMELOS matches our `excess_days`; SLOSR matches our O/E. The 69% to 9.2% result shows that naive flag limits give many false alarms, which is why we calibrated our flag lines empirically (planted-excess test). Different setting (ICU, Japan). |
 | Island Health (Canada), *Length of Stay vs. Expected Length of Stay in Acute Care* (PDF) | Indicator = ratio of actual to expected length of stay (ALOS:ELOS), target 1.00; above 1.00 means longer than expected. **Excludes "atypical" cases** (patients at more than one hospital, died in hospital, discharged against medical advice, unusually long stays; about 20% of cases). | Same ratio and interpretation as ours. **Differs:** we do not exclude deaths or outliers (22 deaths in our data). |
 
+### Primary source from the Queensland Health manual (supplied by the owner as a PDF; read directly)
+| Source | What it says (page numbers refer to the PDF) | How it relates |
+|---|---|---|
+| Queensland Health, *Queensland Hospital Admitted Patient Data Collection (QHAPDC) Manual 2026-2027, Version 1.0* (231 pages) | **p. 28, section 3.8.1:** length of stay is the total of "patient days"; calculated as "separation date minus admission date minus total leave days". Patients admitted and separated on different dates count a patient day for the admission day "but do not count a 'patient day' for day of separation". **"Patients admitted and separated on the same date, count as one 'patient day'."** A leave day is a day away from hospital at midnight with the intention to return within seven days. **p. 13, section 2.1:** a separation can be formal (discharge, transfer or death) or statistical (episode type changes); leave is not a separation unless it exceeds seven days. **pp. 43-44:** mode of separation (discharge status) is a coded field (for example 16 = transferred to another hospital). | **Verifies our length-of-stay convention** (separation date minus admission date; same-day counts as 1; no leave days in our data). Our simplified "Died / Discharged" mode of separation omits transfers, which Queensland records. |
+
 ## Part C: leads NOT verified (could not be opened)
 These came from a web-search summary supplied by the project owner. They are **not** cited as evidence yet.
-- METEOR data elements 269422 and 329889 (length of stay with and without leave days) and the claim that **same-day stays count as 1 day**.
+- METEOR data elements 269422 and 329889 (length of stay with and without leave days). The Queensland manual (above) verifies the same-day and leave rules for Queensland; the METEOR pages themselves were not opened.
 - AIHW glossary and admitted patient care pages (average length of stay including or excluding same-day stays).
 - Queensland Health: QHAPDC manual counting rules (including leave rules) and the Performance and Accountability Framework.
 - The claim that AIHW and state departments use indirect standardisation by AR-DRG, and medRxiv preprint 10.1101/2025.06.26.25330250.
@@ -36,4 +41,4 @@ To verify: save each page as a PDF from a browser (Print, then Save as PDF) and 
 ## What this means for our method (decision rule: definition differs, change; method differs, keep and document)
 - **Concept confirmed by official sources:** comparing observed with expected length of stay for each record, summed to hospital level and expressed as excess bed days, is what NSW Health's RSI does.
 - **Our method is a simplified version** and is documented as such. Candidate refinements (none made): more adjustment variables where data allows; excluding deaths and outliers as a sensitivity check; the geometric mean for skewed stays.
-- **Same-day convention:** still marked "verify before quoting" until the METEOR page is read.
+- **Same-day convention: verified** (QHAPDC Manual 2026-27, section 3.8.1). The METEOR page is optional now.

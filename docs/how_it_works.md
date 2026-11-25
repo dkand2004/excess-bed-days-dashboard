@@ -70,8 +70,8 @@ For a hospital we add up all its observed days and divide by all its expected da
 - **Mean, not median.** Stay lengths are right-skewed, so a median makes almost every group look like it has
   "excess" days. The mean makes excess add up to zero.
 - **Minimum 10 stays per peer group.** A benchmark from a handful of stays is mostly noise, so we refuse to score it.
-- **Same-day stays count as 1 day** (a common Australian convention, marked "verify before quoting"). In this data
-  every stay is overnight anyway.
+- **Same-day stays count as 1 day**, as in the Queensland QHAPDC Manual 2026-27 (section 3.8.1). Length of stay is separation
+  date minus admission date (minus leave days, of which our synthetic data has none). In this data every stay is overnight anyway.
 
 ---
 
